@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CVForge · Generador de hojas de vida para desarrolladores</title>
+  <meta name="description" content="Crea tu hoja de vida en formato ATS o visual y descárgala en PDF.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip" href="#form">Saltar al formulario</a>
+
+  <header class="top">
+    <div class="brand">
+      <span class="logo" aria-hidden="true">{cv}</span>
+      <div><h1>CVForge</h1><p>Hojas de vida para desarrolladores</p></div>
+    </div>
+    <div class="progress">
+      <span>Progreso del CV: <b id="pct">0%</b></span>
+      <div class="track" role="progressbar" aria-label="Progreso del CV" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="fill"></i></div>
+    </div>
+  </header>
+
+  <main class="app">
+    <!-- PANEL DE EDICIÓN -->
+    <section class="edit" aria-label="Panel de edición">
+      <div class="tools">
+        <label>Perfil profesional
+          <select id="role"></select>
+        </label>
+        <button type="button" id="btnDemo" class="ghost">Restaurar mis datos</button>
+        <button type="button" id="btnClear" class="ghost danger">Limpiar</button>
+      </div>
+      <p class="note demo" id="demoNote" hidden>Estás viendo <b>datos de demostración ficticios</b>. Reemplázalos con los tuyos o pulsa «Limpiar».</p>
+      <div id="sugg" class="sugg"></div>
+      <form id="form" novalidate></form>
+
+      <section class="analyzer" aria-labelledby="anTitle">
+        <h2 id="anTitle">Analizar mi CV</h2>
+        <button type="button" id="btnAnalyze" class="primary">Analizar ahora</button>
+        <div id="report" aria-live="polite"></div>
+      </section>
+      <p class="note">Tus datos se guardan automáticamente <b>solo en este navegador</b> (almacenamiento local). No hay cuenta ni sincronización: no estarán en otros dispositivos.</p>
+    </section>
+
+    <!-- VISTA PREVIA -->
+    <section class="prev" aria-label="Vista previa">
+      <div class="bar2">
+        <fieldset class="seg">
+          <legend class="sr">Plantilla</legend>
+          <label><input type="radio" name="tpl" value="ats" checked><span>ATS</span></label>
+          <label><input type="radio" name="tpl" value="visual"><span>Visual</span></label>
+        </fieldset>
+        <button type="button" id="pdfAts" class="primary">PDF ATS</button>
+        <button type="button" id="pdfVis" class="primary">PDF visual</button>
+        <button type="button" id="btnPrint" class="ghost">Imprimir</button>
+      </div>
+      <div id="sheet" class="sheet" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
